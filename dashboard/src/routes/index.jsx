@@ -14,20 +14,16 @@ export const AppRoutes = () => {
     let navigate = useNavigate();
 
     const handleChangeRoute = (route) => {
+        console.log({route})
         navigate(route, {replace: true})
     }
 
     useEffect(() => {
-        console.log({auth, socket})
-        if(auth.user && socket.connected) {
-            socket.on("CHANGE_ROUTE", handleChangeRoute)
-        }
+        socket.on("CHANGE_ROUTE", handleChangeRoute)
         return () => {
-            if(auth.user && socket.connected) {
-                socket.off("CHANGE_ROUTE", handleChangeRoute);
-            }
+            socket.off("CHANGE_ROUTE", handleChangeRoute);
         };
-    }, [auth, socket]);
+    }, [socket]);
 
     const commonRoutes = [
         { path: '/', element: <Navigate to={"/mode1"} /> },
