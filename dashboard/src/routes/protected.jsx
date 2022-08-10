@@ -18,7 +18,7 @@ const PrivateApp = () => {
     let location = useLocation();
 
     useEffect(() => {
-        if(!socket.connected)
+        if(auth.user && !socket.connected)
             socket.connect()
     },[])
 
