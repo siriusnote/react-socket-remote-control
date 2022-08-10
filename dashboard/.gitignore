@@ -21,8 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.idea
-*.iml
-.idea/*
-socket_server/logs/*.log
-socket_server/node_modules/*
